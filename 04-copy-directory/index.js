@@ -5,9 +5,10 @@ if(fs.existsSync("./04-copy-directory/files_copy")){
 }
 fs.mkdirSync("./04-copy-directory/files_copy");
 
-const copy = async () => {
-      fs.cp('./04-copy-directory/files', './04-copy-directory/files_copy', {recursive: true}, (err) => err && console.log(err));
+const copy = async (fromDir = './04-copy-directory/files', toDir = './04-copy-directory/files_copy') => {
+      fs.cp(fromDir, toDir, {recursive: true}, (err) => err && console.log(err));
 };
 
 copy();
 
+module.exports = copy;
